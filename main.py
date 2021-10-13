@@ -1,4 +1,37 @@
 '''
+5. Determină dacă un număr dat este palindrom.
+
+Funcția principală: is_palindrome(n) -> bool
+Funcția de test: test_is_palindrome()
+'''
+def is_palindrome(n):
+    '''
+    determina daca un numar este palindrom
+    :param n: n este un numar intreg
+    :return: returneaza True daca este palindrom si False daca nu este palindrom
+    '''
+    n = str(n)
+    lungime = len(n) - 1
+    i = 0
+    k = 1
+    while i < lungime:
+        if n[i] != n[lungime]:
+            k = 0
+        i += 1
+        lungime -= 1
+    if k == 1:
+        return True
+    else:
+        return False
+
+def test_is_palindrome():
+    assert is_palindrome(1331) == True
+    assert is_palindrome(2662) == True
+    assert is_palindrome(123454321) == True
+    assert is_palindrome(5685) == False
+test_is_palindrome()
+
+'''
 6. Determină dacă un număr este superprim: dacă toate prefixele sale sunt prime. De exemplu,
 233 este superprim, deoarece 2, 23 și 233 sunt toate prime, dar 237 nu este superprim, deoarece 237 nu este prim.
 
