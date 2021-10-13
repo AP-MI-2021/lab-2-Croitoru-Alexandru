@@ -1,6 +1,5 @@
 '''
 5. Determină dacă un număr dat este palindrom.
-
 Funcția principală: is_palindrome(n) -> bool
 Funcția de test: test_is_palindrome()
 '''
@@ -34,7 +33,6 @@ test_is_palindrome()
 '''
 6. Determină dacă un număr este superprim: dacă toate prefixele sale sunt prime. De exemplu,
 233 este superprim, deoarece 2, 23 și 233 sunt toate prime, dar 237 nu este superprim, deoarece 237 nu este prim.
-
 Funcția principală: is_superprime(n) -> bool
 Funcția de test: test_is_superprime()
 '''
@@ -47,10 +45,11 @@ def is_prime(n):
     '''
     if n < 2:
         return False
-    for i in range(2, n//2+1):
+    for i in range(2, n // 2 + 1):
         if n % i == 0:
             return False
     return True
+
 
 def test_is_prime():
     assert is_prime(3) == True
@@ -67,7 +66,7 @@ def is_superprime(n):
     :return: True daca este superprim,Fals daca nu este superprim
     '''
     ok = 1
-    while(n):
+    while (n):
         if is_prime(n) is False:
             ok = 0
         n = n // 10
@@ -76,7 +75,6 @@ def is_superprime(n):
     else:
         return False
 
-        
 
 def test_is_superprime():
     assert is_superprime(233) == True
@@ -85,6 +83,8 @@ def test_is_superprime():
     assert is_superprime(740) == False
     assert is_superprime(237) == False
 test_is_superprime()
+
+
 '''
 7. Determină dacă un număr este antipalindrom: un număr este antipalindrom dacă oricare două cifre egal depărtate de extremități sunt diferite 
 (excepție făcând cifra din mijloc dacă avem un număr impar de cifre). 
@@ -120,9 +120,10 @@ def test_is_antipalindrome():
 test_is_antipalindrome()
 
 option = '''
-Daca doriti sa aflati daca un numar este antipalindrom scrie 1.
-Daca doriti sa aflati daca un numar este superprim scrie 2.
-Daca doriti sa opriti programul scrie 3.
+Daca doriti sa aflati daca un numar este palindrom scrie 1.
+Daca doriti sa aflati daca un numar este antipalindrom scrie 2.
+Daca doriti sa aflati daca un numar este superprim scrie 3.
+Daca doriti sa opriti programul scrie 4.
 '''
 
 def main():
@@ -130,17 +131,23 @@ def main():
         optiune = input(option)
         if optiune == '1':
             numar = int(input("Scrieti valoarea:"))
+            if is_palindrome(numar):
+                print("Este palindrom")
+            else:
+                print("Nu este palindrom")
+        elif optiune == '2':
+            numar = int(input("Scrieti valoarea:"))
             if is_antipalindrome(numar):
                 print("Este antipalindrom!")
             else:
                 print("Nu este antipalindrom!")
-        elif optiune == '2':
-            numar = input("Scrieti numarul: ")
+        elif optiune == '3':
+            numar = int(input("Scrieti numarul: "))
             if is_superprime(numar):
                 print("Este numar superprim!")
             else:
                 print("Nu este un numar superprim!")
-        elif optiune == '3':
+        elif optiune == '4':
             print("programul s-a oprit!")
             break
         else:
